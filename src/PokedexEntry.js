@@ -38,14 +38,14 @@ class PokedexEntry extends Component {
         }
         for (var i = 0; i < pokedex.types.length; i++){
             typeNumber.push(
-                <th>Type #{i+1}</th>
+                <th key={i+1}>Type #{i+1}</th>
             )
             type.push(
-                <td>{pokedex.types[i].type.name}</td>
+                <td key={pokedex.types[i].type.name}>{pokedex.types[i].type.name}</td>
             )
         }
         table.push(
-            <table border="1">
+            <table className="typeTable">
                 <caption>Type(s)</caption>
                 <thead>
                     <tr>
@@ -72,14 +72,14 @@ class PokedexEntry extends Component {
         }
         for (var i = 0; i < pokedex.stats.length; i++){
             tableHeads.push(
-                <th>{pokedex.stats[i].stat.name}</th>
+                <th key={pokedex.stats[i].stat.name}>{pokedex.stats[i].stat.name}</th>
             )
             tableData.push(
-                <td>{pokedex.stats[i].base_stat}</td>
+                <td key={pokedex.stats[i].stat.url}>{pokedex.stats[i].base_stat}</td>
             )
         }
         table.push(
-            <table border="1">
+            <table className="StatTable">
                 <caption>Stats</caption>
                 <thead>
                 <tr>
@@ -106,18 +106,18 @@ class PokedexEntry extends Component {
         }
         for (var i = 0; i < pokedex.abilities.length; i++){
             abilityNumber.push(
-                <th>
+                <th key={pokedex.abilities[i].ability.url}>
                     Ability#{i+1}
                 </th>
             )
             abilities.push(
-                <td>
+                <td key={pokedex.abilities[i].ability.name}>
                     {pokedex.abilities[i].ability.name}
                 </td>
             )
         }
         table.push(
-            <table>
+            <table className="abilityTable">
                 <caption>Abilities</caption>
                 <thead>
                     <tr>
