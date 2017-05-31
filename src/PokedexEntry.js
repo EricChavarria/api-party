@@ -19,7 +19,6 @@ class PokedexEntry extends Component {
         fetch(`http://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}`)
             .then(response => response.json())
             .then(pokedex => this.setState({ pokedex }))
-            debugger
     }
 
     componentWillReceiveProps(nextProps) {
