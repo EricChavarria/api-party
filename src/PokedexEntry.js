@@ -97,28 +97,41 @@ class PokedexEntry extends Component {
     }
 
     pokemonAbilities() {
+        var table = []
         var abilities = []
-        var list = []
+        var abilityNumber = []
         const{ pokedex } = this.state
         if(!pokedex.types){
             return
         }
         for (var i = 0; i < pokedex.abilities.length; i++){
-            list.push(
-                <ul>
+            abilityNumber.push(
+                <th>
+                    Ability#{i+1}
+                </th>
+            )
+            abilities.push(
+                <td>
                     {pokedex.abilities[i].ability.name}
-                </ul>
+                </td>
             )
         }
-        abilities.push(
-            <div>
-                <h2>Abilities</h2>
-                <ul>
-                    {list}
-                </ul>
-            </div>
+        table.push(
+            <table>
+                <caption>Abilities</caption>
+                <thead>
+                    <tr>
+                        {abilityNumber}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {abilities}
+                    </tr>
+                </tbody>
+            </table>
         )
-        return abilities
+        return table
     }
 
     render() {
